@@ -1,15 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { getSquares } from '../helpers/getSquares'
 
 const initialState = {
+  squaresNum: getSquares(20),
   editionsNum: 0,
-  combinationsNum: 0,
-  tickets: []
+  ticketsNum: 3,
+  combinationsTotal: 0,
+  ticketsFullfilled: []
 }
 
 export const ticketsSlice = createSlice({
-  name: 'ticket',
+  name: 'tickets',
   initialState,
-  reducers: {},
+  reducers: {
+  },
 })
 
 // export const { } = ticketsSlice.actions
