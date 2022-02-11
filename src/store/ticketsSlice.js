@@ -24,10 +24,13 @@ export const ticketsSlice = createSlice({
           TicketCombinations: 0,
         }
       )
+    },
+    removeTicket(state, action) {
+      state.tickets = state.tickets.filter(ticket => ticket.id !== action.payload);
     }
   },
 })
 
-export const { addTicket } = ticketsSlice.actions
+export const { addTicket, removeTicket } = ticketsSlice.actions
 
 export default ticketsSlice.reducer
