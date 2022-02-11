@@ -1,9 +1,10 @@
 import React from 'react'
-import { Square } from '../Square/Square'
 import { nanoid } from 'nanoid'
+import { useSelector } from 'react-redux'
+
+import { Square } from '../Square/Square'
 
 import style from './style.module.scss'
-import { useSelector } from 'react-redux'
 
 
 export const Board = () => {
