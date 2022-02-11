@@ -24,6 +24,5 @@
         "arrow-body-style": "off",
         "no-restricted-imports": "off",
         "react/prop-types": [0],
-        "semi-style": ["error", "last"]
     }
 }

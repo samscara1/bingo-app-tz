@@ -1,8 +1,17 @@
 import React from 'react';
-import { Board } from './Board/Board';
+import { useSelector } from 'react-redux';
+import { Ticket } from './Ticket/Ticket';
+import { nanoid } from 'nanoid';
 
 export const App = () => {
+  const tickets = useSelector(state => state.tickets.tickets)
   return (
-    <Board />
+    <div>
+      {
+        tickets.map((ticket, i) => {
+          return <Ticket key={nanoid()} index={i} id={ticket.id} />
+        })
+      }
+    </div>
   );
 }
