@@ -1,8 +1,8 @@
 import React from 'react';
-import { Square } from './Square/Square';
+import { Board } from './Board/Board';
 
 export const App = () => {
   return (
-    <Square title={1}/>
+    <Board />
   );
 }
