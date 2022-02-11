@@ -6,7 +6,6 @@ import { Square } from '../Square/Square'
 
 import style from './style.module.scss'
 
-
 export const Board = () => {
   const squares = useSelector(state => state.tickets.squaresNum)
   return (
