@@ -3,9 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   editionsNum: 0,
   combinationsNum: 0,
-  tickets: [
-    {}
-  ]
+  tickets: []
 }
 
 export const ticketsSlice = createSlice({

@@ -1,7 +1,8 @@
 import React from 'react';
+import { Square } from './Square/Square';
 
 export const App = () => {
   return (
-    <div>Home</div>
+    <Square title={1}/>
   );
 }
