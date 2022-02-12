@@ -11,17 +11,19 @@ export const Header = ({ ticketNum }) => {
     <header>
       {
         (ticketNum === 0) ?
-        <div>
-          <span>
+          <div>
+            <span>
             Отметьте не менее 4 чисел в каждом поле
-          </span>
-          <button onClick={handleClick}>
-            + Добавить билет
-          </button>
-        </div> :
-        <span>
+            </span>
+            <button 
+              type="button"
+              onClick={handleClick}>
+              + Добавить билет
+            </button>
+          </div> :
+          <span>
           Билет № {ticketNum+1}
-        </span>
+          </span>
       }
     </header>
   )

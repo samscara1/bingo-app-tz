@@ -1,8 +1,8 @@
 export const getSquares = (squares) => {
-  let set = [], range = squares;
+  const set = []
 
-  for(var i = 1; i <= range; i++){
-      set[i]= i;
+  for(let i = 1; i <= squares; i++){
+    set[i]= i;
   }
   return set
 }
