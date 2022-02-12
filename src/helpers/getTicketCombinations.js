@@ -5,5 +5,5 @@ export const getTicketCombinations = (fieldOne, fieldTwo, num) => {
     ((factorialize(num)*factorialize(num))*
     factorialize(fieldOne - num)*
     factorialize(fieldTwo - num))
-  return combinations
+  return Math.round(combinations)
 }
