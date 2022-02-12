@@ -1,14 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getSquares } from '../helpers/getSquares'
-import { getTickets } from '../helpers/getTickets'
 import { nanoid } from 'nanoid'
+import { getArray } from '../helpers/getArray'
 
 const initialState = {
-  squaresNum: getSquares(20),
   editionsNum: 0,
-  ticketsNum: 3,
   combinationsTotal: 0,
-  tickets: getTickets(3)
+  tickets: getArray(3, {
+    id: nanoid(),
+    fieldOne: getArray(20, {
+      isActive: false
+    }),
+    fieldTwo: getArray(20, {
+      isActive: false
+    }),
+    ticketCombinations: 0
+  })
 }
 
 export const ticketsSlice = createSlice({
@@ -19,18 +25,26 @@ export const ticketsSlice = createSlice({
       state.tickets.push(
         {
           id: nanoid(),
-          fieldOne: [],
-          fieldTwo: [],
-          TicketCombinations: 0,
+          fieldOne: getArray(20, {
+            isActive: false
+          }),
+          fieldTwo: getArray(20, {
+            isActive: false
+          }),
+          ticketCombinations: 0
         }
       )
     },
-    removeTicket(state, action) {
-      state.tickets = state.tickets.filter(ticket => ticket.id !== action.payload);
+    toggleActiveNum(state, {payload: {ticketId, field, num }}) {
+      const currentTicket = state.tickets.find(({id}) => id === ticketId)
+      if (currentTicket) {
+        const currentIsActive = state.tickets.find(({id}) => id === ticketId)[field][num-1].isActive 
+        state.tickets.find(({id}) => id === ticketId)[field][num-1].isActive = !currentIsActive
+      }
     }
-  },
+  }
 })
 
-export const { addTicket, removeTicket } = ticketsSlice.actions
+export const { addTicket, removeTicket, toggleActiveNum } = ticketsSlice.actions
 
 export default ticketsSlice.reducer

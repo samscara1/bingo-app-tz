@@ -1,18 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
+// import { useDispatch } from 'react-redux';
+import cn from 'classnames';
+// import { addActiveNum } from '../store/ticketsSlice';
+import { useDispatch } from 'react-redux';
+// import { addActiveNum, removeActiveNum } from '../store/ticketsSlice';
 
-import style from './style.module.scss';
+import Style from './style.module.scss';
+import { toggleActiveNum } from '../store/ticketsSlice';
 
-export const Square = ({ title }) => {
-  const [isActive, setIsActive] = useState(false)
+export const Square =  ({ num, isActive, ticketId, field }) => {
+  const dispatch = useDispatch()
+
+  const active = cn(Style.square, {
+    [Style.active]: isActive
+  })
+
   const handleClick = () => {
-    setIsActive(!isActive)
+    dispatch(toggleActiveNum({ticketId, field, num }))
   }
   return (
     <button 
-      className={isActive ? (`${style.square} ${style.active}`) : `${style.square}`}
       onClick={handleClick}
+      type="button"
+      className={active}
     >
-      {title}
+      {num}
     </button>
   )
 }
