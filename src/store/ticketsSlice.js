@@ -8,6 +8,8 @@ import { getTickets } from '../helpers/getTickets'
 import { randomise } from '../helpers/randomise'
 
 const initialState = {
+  sum: 0,
+  activeTicketsNum: 0,
   editionsNum: 0,
   combinationsTotal: 0,
   tickets: getTickets(3)
@@ -50,7 +52,6 @@ export const ticketsSlice = createSlice({
       const combArray = []
       state.tickets.forEach(({ticketCombinations}) => {combArray.push(ticketCombinations)})
       state.combinationsTotal = combArray.reduce((a, b) => a + b, 0);
-      console.log(state.combinationsTotal)
     },
     getRandomNums(state, {payload: {ticketId, numOfActive, min, max, oddToggle}}) {
       const currentTicket = state.tickets.find(({id}) => id === ticketId)
@@ -63,12 +64,30 @@ export const ticketsSlice = createSlice({
         randomise(min, max, numOfActive, oddToggle).forEach((num, index) => {
           state.tickets.find(({id}) => id === ticketId).fieldTwo[num].isActive = true
         })
-
       }
+    },
+    getActiveTickets(state) {
+      state.activeTicketsNum = 0
+      state.tickets.forEach(({ticketCombinations}) => {
+        if(ticketCombinations > 0) {
+          state.activeTicketsNum += 1
+        }
+      })
+    },
+    getEditions(state, {payload}) {
+      state.editionsNum = payload
+    },
+    getSum(state) {
+      if (state.combinationsTotal === 0) {
+        state.combinationsTotal = 1
+      } else if (state.editionsNum === 0) {
+        state.editionsNum = 1
+      }
+      state.sum = state.combinationsTotal * state.editionsNum * 150
     }
   }
 })
 
-export const { addTicket, removeTicket, toggleActiveNum, getCombinations, getRandomNums } = ticketsSlice.actions
+export const { addTicket, removeTicket, toggleActiveNum, getCombinations, getRandomNums, getActiveTickets, getEditions, getSum } = ticketsSlice.actions
 
 export default ticketsSlice.reducer

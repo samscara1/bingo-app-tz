@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 
 import Style from './style.module.scss';
-import { getCombinations, toggleActiveNum } from '../store/ticketsSlice';
+import { getActiveTickets, getCombinations, getSum, toggleActiveNum } from '../store/ticketsSlice';
 
 export const Square =  ({ num, isActive, ticketId, field }) => {
   const dispatch = useDispatch()
@@ -16,6 +16,8 @@ export const Square =  ({ num, isActive, ticketId, field }) => {
   const handleClick = () => {
     dispatch(toggleActiveNum({ticketId, field, num }))
     dispatch(getCombinations ({ticketId}))
+    dispatch(getActiveTickets())
+    dispatch(getSum())
   }
   return (
     <button 

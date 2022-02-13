@@ -1,0 +1,26 @@
+.panelshown {
+  width: 300px;
+  padding: 15px 30px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select {
+  width: 40px;
+  height: 23px;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid lightgray;
+  font-family: 'roboto', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
