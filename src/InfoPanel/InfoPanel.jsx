@@ -1,7 +1,21 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { HiddenPanel } from './components/HiddenPanel/HiddenPanel'
+import { ShownPanel } from './components/ShownPanel/ShownPanel'
+
+import Style from './style.module.scss'
 
 export const InfoPanel = () => {
+  const activeTickets = useSelector(state => state.tickets.activeTicketsNum)
   return (
-    <div>InfoPanel</div>
+    <section className={Style.infopanel}>
+      <h1 className={Style.heading}>
+        Купить билеты <br />
+        «Спортлото «4 из 20»
+      </h1>
+      {activeTickets ? 
+        <ShownPanel /> :
+        <HiddenPanel />}
+    </section>
   )
 }
