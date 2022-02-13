@@ -15,7 +15,7 @@ export const Square =  ({ num, isActive, ticketId, field }) => {
 
   const handleClick = () => {
     dispatch(toggleActiveNum({ticketId, field, num }))
-    dispatch(getCombinations (ticketId))
+    dispatch(getCombinations ({ticketId}))
   }
   return (
     <button 

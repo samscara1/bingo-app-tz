@@ -14,7 +14,7 @@ export const Ticket = ({ index, id, fieldOne, fieldTwo }) => {
         <Board title="Поле 1" field="fieldOne" ticketId={id} squares={fieldOne} />
         <Board title="Поле 2" field="fieldTwo" ticketId={id} squares={fieldTwo} />
       </div>
-      <Footer />
+      <Footer ticketId={id} />
     </section>
   )
 }
