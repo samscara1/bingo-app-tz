@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+input[type=number]{
+  height: 20px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  display: inline-flex;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+
+.btn {
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 12px;
+  border: none;
+  height: 35px;
+  color: rgb(33, 33, 33);
+  cursor: pointer;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  outline: none;
+  text-decoration: none;
+}

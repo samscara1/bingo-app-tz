@@ -1,0 +1,35 @@
+.container {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.title {
+  font-family: 'roboto', sans-serif;
+  display: block;
+  text-align: inherit;
+  color: rgb(33, 33, 33);
+  margin: 0px;
+  padding: 0px;
+  transition: color 150ms linear 0s;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.nums {
+  margin-top: -15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.435);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
