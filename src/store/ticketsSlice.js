@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-vars */
-import { createSlice, current } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import { nanoid } from 'nanoid'
 import { getArray } from '../helpers/getArray'
 import { getTicketCombinations } from '../helpers/getTicketCombinations'

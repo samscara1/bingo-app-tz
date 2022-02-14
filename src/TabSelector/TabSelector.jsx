@@ -10,14 +10,12 @@ export const TabSelector = ({ handleClick }) => {
   const handleClickNums = () => {
     setChoseNums(true)
     setMultiadd(false)
-    console.log('left')
     handleClick(true)
   }
 
   const handleClickMulti = () => {
     setChoseNums(false)
     setMultiadd(true)
-    console.log('right')
     handleClick(false)
   }
 
