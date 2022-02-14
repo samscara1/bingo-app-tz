@@ -1,0 +1,36 @@
+.btn {
+  border: none;
+  background-color: rgb(255, 126, 57);
+  border-bottom: 2px solid rgb(227, 111, 51);
+  -webkit-box-align: center;
+  align-items: center;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  opacity: 1;
+  outline: 0px;
+  padding: 0px 16px;
+  height: 48px;
+  position: relative;
+  transition: opacity 150ms linear 0s;
+  user-select: none;
+  width: 100%;
+  cursor: pointer;
+  font-family: 'roboto', sans-serif;
+  font-size: 16px;
+  margin: 0;
+
+  &:hover {
+    color: black;
+
+  }
+}
+
+.active {
+  border-bottom: 5px solid rgb(227, 111, 51);;
+}
+
+.inactive {
+  border-bottom: 2px solid rgb(227, 111, 51);
+  color: rgb(135, 68, 33);
+}
