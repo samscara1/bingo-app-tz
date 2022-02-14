@@ -1,27 +1,39 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import cn from 'classnames';
+
 import { addTicket } from '../../../store/ticketsSlice'
+
+import { Add } from '../../../svgComponents/Add'
+import { Button } from '../../../UI/Button/Button'
+
+import Style from './style.module.scss'
 
 export const Header = ({ ticketNum }) => {
   const dispatch = useDispatch()
   const handleClick = () => {
     dispatch(addTicket())
   }
+
+  const ticketHeader = cn(Style.heading, {
+    [Style.number]: ticketNum
+  })
+
   return (
-    <header>
+    <header className={Style.container}>
       {
         (ticketNum === 0) ?
-          <div>
+          <div className={ticketHeader}>
             <span>
             Отметьте не менее 4 чисел в каждом поле
             </span>
-            <button 
-              type="button"
-              onClick={handleClick}>
-              + Добавить билет
-            </button>
+            <Button 
+              pic={<Add />}
+              title="Добавить билет"
+              handleClick={handleClick}
+            />
           </div> :
-          <span>
+          <span className={ticketHeader}>
           Билет № {ticketNum+1}
           </span>
       }

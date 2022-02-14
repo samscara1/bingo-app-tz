@@ -1,11 +1,25 @@
 .board {
   width: 380px;
   border-collapse: collapse;
-  margin: 50px 50px 50px 0;
+  margin: 10px 50px 50px 0;
 }
 
 .title {
   font-size: 14px;
-  margin: 0px 0px 46px;
+  margin: 0 0 46px 0;
   font-family: 'roboto', sans-serif;
+}
+
+.hidden {
+  visibility: hidden;
+  font-family: 'roboto', sans-serif;
+  font-size: 12px;
+  margin-top: -25px;
+}
+
+.shown {
+  visibility: visible;
+  font-family: 'roboto', sans-serif;
+  font-size: 12px;
+  margin-top: -25px;
 }

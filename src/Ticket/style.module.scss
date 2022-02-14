@@ -1,3 +1,22 @@
+.ticket {
+  border-radius: 5px;
+  background-color: white;
+  padding: 30px 0 0 30px;
+  margin: 30px 0;
+}
+
 .boardsContainer {
   display: flex;
+}
+
+.priceVisible {
+  font-family: 'roboto', sans-serif;
+  font-size: 12px;
+  visibility: hidden;
+}
+
+.priceHidden {
+    font-family: 'roboto', sans-serif;
+  font-size: 12px;
+  visibility: visible;
 }

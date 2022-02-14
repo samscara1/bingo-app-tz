@@ -38,7 +38,6 @@ export const ticketsSlice = createSlice({
       if (currentTicket) {
         const currentIsActive = state.tickets.find(({id}) => id === ticketId)[field][num-1].isActive 
         state.tickets.find(({id}) => id === ticketId)[field][num-1].isActive = !currentIsActive
-        console.log(current(state.tickets.find(({id}) => id === ticketId)[field][num-1]))
       }
     },
     getCombinations(state, {payload: {ticketId}}) {
@@ -84,10 +83,14 @@ export const ticketsSlice = createSlice({
         state.editionsNum = 1
       }
       state.sum = state.combinationsTotal * state.editionsNum * 150
+    },
+    clearActiveNums(state, {payload: {ticketId}}) {
+      state.tickets.find(({id}) => id === ticketId).fieldOne.forEach((num) => {num.isActive = false})
+      state.tickets.find(({id}) => id === ticketId).fieldTwo.forEach((num) => {num.isActive = false})
     }
   }
 })
 
-export const { addTicket, removeTicket, toggleActiveNum, getCombinations, getRandomNums, getActiveTickets, getEditions, getSum } = ticketsSlice.actions
+export const { addTicket, removeTicket, toggleActiveNum, getCombinations, getRandomNums, getActiveTickets, getEditions, getSum, clearActiveNums } = ticketsSlice.actions
 
 export default ticketsSlice.reducer
