@@ -4,11 +4,11 @@ export const randomise = (min, max, number, oddToggle) => {
     const num = (Math.floor(
       Math.random() * (max - min) + min
     ))
-    if (oddToggle === 'odd') {
+    if (oddToggle === 'even') {
       if (num%2 === 1) {
         nums.add(num)
       }
-    } else if (oddToggle === 'even') {
+    } else if (oddToggle === 'odd') {
       if (num%2 === 0) {
         nums.add(num) 
       }

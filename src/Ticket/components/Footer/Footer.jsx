@@ -1,22 +1,28 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { getRandomNums, getActiveTickets, getCombinations, getSum } from '../../../store/ticketsSlice'
+import { clearActiveNums, getCombinations, getActiveTickets, getSum } from '../../../store/ticketsSlice'
+import { Cross } from '../../../svgComponents/Cross'
+import { Button } from '../../../UI/Button/Button'
 
-export const Footer = ({ ticketId }) => {
+import { RandomPanel } from './components/RandomPanel/RandomPanel'
+
+import Style from './style.module.scss'
+
+export const Footer = ({ ticketId, activeFieldOne, activeFieldTwo }) => {
+
   const dispatch = useDispatch()
+
   const handleClick = () => {
-    dispatch(getRandomNums({ ticketId, numOfActive: 4, min: 1, max: 20, oddToggle: 'even'}))
+    dispatch(clearActiveNums({ticketId}))
     dispatch(getCombinations ({ticketId}))
     dispatch(getActiveTickets())
     dispatch(getSum())
   }
-  return (
-    <div>
-      <button
-        type="button"
-        onClick={handleClick}
 
-      >random</button>
-    </div>
+  return (
+    <footer className={Style.footer}>
+      <RandomPanel ticketId={ticketId} />
+      {(activeFieldOne.length > 0 || activeFieldTwo.length > 0) && <Button title="Очистить" pic={<Cross />} handleClick={handleClick} />}
+    </footer>
   )
 }
