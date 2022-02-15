@@ -11,11 +11,11 @@ export const RandomPanel = ({ ticketId} ) => {
 
   return (
     <div>
-      <RandomiseBtn pic={<Random />} ticketId={ticketId} minMums={1} maxNums={20} />
-      <RandomiseBtn pic={<Odd />} ticketId={ticketId} minMums={1} maxNums={20} oddEven="odd" />
-      <RandomiseBtn pic={<Even />} ticketId={ticketId} minMums={1} maxNums={20} oddEven="even" />
-      <RandomiseBtn pic={<RandomTop />} ticketId={ticketId} minMums={1} maxNums={10} />
-      <RandomiseBtn pic={<RandomBottom />} ticketId={ticketId} minMums={11} maxNums={20} />
+      <RandomiseBtn pic={<Random />} ticketId={ticketId} minNums={1} maxNums={20} />
+      <RandomiseBtn pic={<Odd />} ticketId={ticketId} minNums={1} maxNums={20} oddEven="odd" />
+      <RandomiseBtn pic={<Even />} ticketId={ticketId} minNums={1} maxNums={20} oddEven="even" />
+      <RandomiseBtn pic={<RandomTop />} ticketId={ticketId} minNums={1} maxNums={10} />
+      <RandomiseBtn pic={<RandomBottom />} ticketId={ticketId} minNums={11} maxNums={20} />
     </div>
   )
 }

@@ -44,6 +44,7 @@ export const ticketsSlice = createSlice({
       const currentTicket = state.tickets.find(({id}) => id === ticketId)
       const fieldOneActive = currentTicket.fieldOne.filter(item => item.isActive).length
       const fieldTwoActive = currentTicket.fieldTwo.filter(item => item.isActive).length
+      console.log(fieldOneActive)
       state
         .tickets
         .find(({id}) => id === ticketId)

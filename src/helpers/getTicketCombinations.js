@@ -1,9 +1,18 @@
 import { factorialize } from './factorialize'
 
-export const getTicketCombinations = (fieldOne, fieldTwo, num) => {
-  const combinations = (factorialize(fieldOne) * factorialize(fieldTwo))/
-    ((factorialize(num)*factorialize(num))*
-    factorialize(fieldOne - num)*
-    factorialize(fieldTwo - num))
-  return Math.round(combinations)
+export function getTicketCombinations (fieldOne, fieldTwo, num)  {
+  const factorializedFields = factorialize(fieldOne) * factorialize(fieldTwo)
+  const factorializedNumSquared = (factorialize(num) ** 2)
+  let fieldONeMinusNum = factorialize(fieldOne - num)
+  let fieldTwoMinusNum = factorialize(fieldTwo - num)
+  if (fieldONeMinusNum < 0) {
+    fieldONeMinusNum = 1
+  }
+  if (fieldTwoMinusNum < 0) {
+    fieldTwoMinusNum = 1
+  }
+  if (fieldOne >= 4 && fieldTwo >= 4) {
+    return((factorializedFields / (factorializedNumSquared * fieldONeMinusNum * fieldTwoMinusNum)))
+  } 
+  return 0
 }

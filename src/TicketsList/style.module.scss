@@ -1,3 +1,17 @@
 .ticketList {
   margin-top: 70px;
 }
+
+.addBtn {
+  width: 893px;
+  height: 80px;
+  border: 2px solid lightslategrey;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-left: 80px;
+
+  &:hover {
+    background-color: lightgray;
+  }
+}
