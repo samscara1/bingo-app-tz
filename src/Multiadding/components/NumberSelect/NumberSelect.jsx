@@ -5,10 +5,11 @@ import { Plus } from '../../../svgComponents/Plus'
 
 import Style from './style.module.scss'
 
-export const NumberSelect = ({ min, max, value, handleClick }) => {
+export const NumberSelect = ({ min, max, value, handleClick, nextCombination }) => {
 
   const handleChange = (e) => {
-    handleClick(e.target.value)
+    if (e.target.value < nextCombination)
+      handleClick(e.target.value)
   }
 
   const handlePlus = () => {
@@ -20,6 +21,7 @@ export const NumberSelect = ({ min, max, value, handleClick }) => {
   }
 
   const handleMinus = () => {
+
     let calcValue = value - 1
     if (calcValue < min) {
       calcValue = min

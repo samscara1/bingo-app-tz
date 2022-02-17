@@ -8,7 +8,7 @@ import { Header } from './components/Header/Header'
 
 import Style from './style.module.scss'
 
-export const Ticket = ({ index, id, fieldOne, fieldTwo }) => {
+export const Ticket = ({ index, id, fieldOne, fieldTwo, showAlert }) => {
   const ttkCombs = useSelector(state => state
     .tickets
     .tickets
@@ -38,8 +38,8 @@ export const Ticket = ({ index, id, fieldOne, fieldTwo }) => {
       <Header ticketNum={index} ticketId={id} />
       <p className={price}>Стоимость билета {ttkCombs * 150} ₽</p>
       <div className={Style.boardsContainer}>
-        <Board title="Поле 1" field="fieldOne" ticketId={id} squares={fieldOne} activeField={activeFieldOne} />
-        <Board title="Поле 2" field="fieldTwo" ticketId={id} squares={fieldTwo} activeField={activeFieldTwo} />
+        <Board title="Поле 1" field="fieldOne" ticketId={id} squares={fieldOne} activeField={activeFieldOne} showAlert={showAlert} />
+        <Board title="Поле 2" field="fieldTwo" ticketId={id} squares={fieldTwo} activeField={activeFieldTwo} showAlert={showAlert} />
       </div>
       <Footer ticketId={id} activeFieldOne={activeFieldOne} activeFieldTwo={activeFieldTwo} />
     </section>
