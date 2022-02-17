@@ -4,7 +4,9 @@ import { useDispatch } from 'react-redux';
 
 
 import Style from './style.module.scss';
-import { getActiveTickets, getCombinations, getSum, toggleActiveNum } from '../store/ticketsSlice';
+import { 
+  manageSquare
+} from '../store/ticketsSlice';
 
 export const Square =  ({ num, isActive, ticketId, field }) => {
   const dispatch = useDispatch()
@@ -13,11 +15,8 @@ export const Square =  ({ num, isActive, ticketId, field }) => {
     [Style.active]: isActive
   })
 
-  const handleClick = () => {
-    dispatch(toggleActiveNum({ticketId, field, num }))
-    dispatch(getCombinations ({ticketId}))
-    dispatch(getActiveTickets())
-    dispatch(getSum())
+  const handleClick = async () => {
+    dispatch(manageSquare({ticketId, field, num}))
   }
   return (
     <button 

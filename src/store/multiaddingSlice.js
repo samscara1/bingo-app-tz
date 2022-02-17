@@ -18,8 +18,6 @@ export const multiaddingSlice = createSlice({
       state.combinations = getTicketCombinations(
         state.fieldOne, state.fieldTwo, 4
       ) * state.ticketsNum * state.editions
-
-      console.log(state.ticketsNum)
     },
     manageFieldOne(state, action) {
       state.fieldOne = action.payload

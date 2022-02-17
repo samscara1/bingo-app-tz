@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { nanoid } from 'nanoid'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -7,10 +7,10 @@ import { getEditions, getSum } from '../../../store/ticketsSlice'
 
 import Style from './style.module.scss'
 
-export const ShownPanel = ({ showTickets }) => {
-  const [selectValue, setSelectValue] = useState(1)
+export const ShownPanel = ({ showTickets, showAlert }) => {
   const activeTickets = useSelector(state => state.tickets.activeTicketsNum)
   const combinations = useSelector(state => state.tickets.combinationsTotal)
+  const editions = useSelector(state => state.tickets.editionsNum)
   const sum = useSelector(state => state.tickets.sum)
 
   const multiTickets = useSelector(state => state.multiadding.ticketsNum)
@@ -19,9 +19,15 @@ export const ShownPanel = ({ showTickets }) => {
   const dispatch = useDispatch()
 
   const handleChange = ({target}) => {
-    setSelectValue(target.value)
-    dispatch(getEditions(target.value))
-    dispatch(getSum())
+    if (combinations * target.value * 150 < 300000) {
+      dispatch(getEditions(target.value))
+      dispatch(getSum())
+    } else if (target.value < +editions && (combinations * target.value * 150 > 300000)) {
+      dispatch(getEditions(target.value))
+      dispatch(getSum())
+    } else if (combinations * target.value * 150 > 300000) {
+      showAlert()
+    }
   }
   return (
     <div className={Style.panelshown}>
@@ -31,7 +37,7 @@ export const ShownPanel = ({ showTickets }) => {
           <p>Кол-во тиражей</p>
           <select 
             className={Style.select}
-            value={selectValue} 
+            value={editions} 
             onChange={handleChange}>
             {
               getArray(10).map((num, i) => {

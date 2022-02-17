@@ -5,7 +5,7 @@ import { ShownPanel } from './components/ShownPanel/ShownPanel'
 
 import Style from './style.module.scss'
 
-export const InfoPanel = ({ showTickets }) => {
+export const InfoPanel = ({ showTickets, manageAlert }) => {
   const activeTickets = useSelector(state => state.tickets.activeTicketsNum)
   return (
     <section className={Style.infopanel}>
@@ -13,9 +13,8 @@ export const InfoPanel = ({ showTickets }) => {
         Купить билеты <br />
         «Спортлото «4 из 20»
       </h1>
-
       {(activeTickets || !showTickets) ? 
-        <ShownPanel showTickets={showTickets} /> :
+        <ShownPanel showTickets={showTickets} showAlert={manageAlert} /> :
         <HiddenPanel />}
     </section>
   )
