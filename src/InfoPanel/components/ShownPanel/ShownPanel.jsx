@@ -6,15 +6,22 @@ import { getArray } from '../../../helpers/getArray'
 import { getEditions, getSum } from '../../../store/ticketsSlice'
 
 import Style from './style.module.scss'
+import { 
+  activeTicketsSelector, 
+  combinationsSelector, 
+  editionsSelector, 
+  multiCombinationsSelector, 
+  multiTicketsSelector, 
+  sumSelector } from '../../../store/selectors'
 
 export const ShownPanel = ({ showTickets, showAlert }) => {
-  const activeTickets = useSelector(state => state.tickets.activeTicketsNum)
-  const combinations = useSelector(state => state.tickets.combinationsTotal)
-  const editions = useSelector(state => state.tickets.editionsNum)
-  const sum = useSelector(state => state.tickets.sum)
+  const activeTickets = useSelector(activeTicketsSelector)
+  const combinations = useSelector(combinationsSelector)
+  const editions = useSelector(editionsSelector)
+  const sum = useSelector(sumSelector)
 
-  const multiTickets = useSelector(state => state.multiadding.ticketsNum)
-  const multiCombinations = useSelector(state => state.multiadding.combinations)
+  const multiTickets = useSelector(multiTicketsSelector)
+  const multiCombinations = useSelector(multiCombinationsSelector)
 
   const dispatch = useDispatch()
 

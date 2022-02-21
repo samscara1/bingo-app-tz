@@ -15,7 +15,15 @@ export const TicketList = ({ showAlert }) => {
     <section className={Style.ticketList}>
       {
         tickets.map((ticket, i) => {
-          return <Ticket key={nanoid()} index={i} id={ticket.id} fieldOne={ticket.fieldOne} fieldTwo={ticket.fieldTwo} showAlert={showAlert} />
+          return (
+            <Ticket 
+              key={nanoid()} 
+              index={i} 
+              id={ticket.id} 
+              fieldOne={ticket.fieldOne} 
+              fieldTwo={ticket.fieldTwo} 
+              showAlert={showAlert} 
+            />)
         })
       }
       <button

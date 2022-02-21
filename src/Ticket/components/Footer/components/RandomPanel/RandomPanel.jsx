@@ -5,7 +5,7 @@ import { Odd } from '../../../../../svgComponents/Odd'
 import { Random } from '../../../../../svgComponents/Random'
 import { RandomBottom } from '../../../../../svgComponents/RandomBottom'
 import { RandomTop } from '../../../../../svgComponents/RandomTop'
-import { RandomiseBtn } from '../../../../../UI/RandomiseBtn/RandomiseBtn'
+import { RandomiseBtn } from '../../../../../RandomiseBtn/RandomiseBtn'
 
 export const RandomPanel = ({ ticketId} ) => {
 
