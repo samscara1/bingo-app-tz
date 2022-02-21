@@ -9,9 +9,10 @@ import Style from './style.module.scss'
 import { TabSelector } from './TabSelector/TabSelector';
 import { Multiadding } from './Multiadding/Multiadding';
 import { showAlert, hideAlert } from './store/ticketsSlice';
+import { alertSelector } from './store/selectors';
 
 export const App = () => {
-  const alert = useSelector(state => state.tickets.alert)
+  const alert = useSelector(alertSelector)
   const [showTickets, setShowTickets] = useState(true)
   const dispatch = useDispatch()
 

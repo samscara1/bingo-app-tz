@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
-import { getRandomNums, getCombinations, getActiveTickets, getSum } from '../../store/ticketsSlice'
+import { getRandomNums, getCombinations, getActiveTickets, getSum } from '../store/ticketsSlice'
 
 import Style from './style.module.scss'
 

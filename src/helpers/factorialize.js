@@ -5,5 +5,4 @@ export function factorialize(num) {
     return 1;
   
   return (num * factorialize(num - 1));
-  
 }
